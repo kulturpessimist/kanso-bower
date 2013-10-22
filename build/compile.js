@@ -81,10 +81,11 @@ module.exports = {
 		*/
 		if(settings.bower.install){
 			/* get dependencies from components.json or kanso.json */
-			if(settings.bower.hasOwnProperty('dependencies')){
-				components = settings.bower.dependencies;
+			bower_dependencies = (settings.bower.dependencies || 'component.json');
+			if(bower_dependencies !== 'string'){
+				components = bower_dependencies;
 			}else{
-				components = require(path.resolve(__dirname, '../../../', 'component.json')).dependencies;
+				components = require(path.resolve(__dirname, '../../../', bower_dependencies)).dependencies;
 			}
 			/* concentrate paths in array */
 			for(var i in components){
