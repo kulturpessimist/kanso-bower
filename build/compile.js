@@ -16,7 +16,7 @@ var methods = {
 	minify: function(files, settings, callback){
 		methods.clean(settings.bower.deployment+'.min.js');
 		console.log(bower_cli,'minify components');
-		var result = uglifyjs.minify( files );
+		var result = uglifyjs.minify( files || []);
 		fs.writeFileSync(settings.bower.deployment+'.min.js', result.code);
 	
 		console.log(bower_cli,'components deployed');
