@@ -85,7 +85,7 @@ module.exports = {
 		if(settings.bower.install){
 			/* get dependencies from components.json or kanso.json */
 			bower_dependencies = (settings.bower.dependencies || 'component.json');
-			if(bower_dependencies !== 'string'){
+			if((typeof bower_dependencies) !== 'string'){
 				components = bower_dependencies;
 			}else{
 				components = require(path.resolve(__dirname, '../../../', bower_dependencies)).dependencies;
