@@ -16,10 +16,13 @@ var methods = {
 	minify: function(files, settings, callback){
 		methods.clean(settings.bower.deployment+'.min.js');
 		console.log(bower_cli,'minify components');
-		var result = uglifyjs.minify( files || []);
-		fs.writeFileSync(settings.bower.deployment+'.min.js', result.code);
-	
-		console.log(bower_cli,'components deployed');
+		if ((!files) || Object.keys(files).length == 0) {
+			console.log(bower_cli,'no files to minify');
+		}else{
+			var result = uglifyjs.minify( files );
+			fs.writeFileSync(settings.bower.deployment+'.min.js', result.code);
+			console.log(bower_cli,'components deployed');
+		}
 		callback.apply(null);
 	},
 	concentrate: function(files, settings, callback){
@@ -91,6 +94,8 @@ module.exports = {
 			for(var i in components){
 				if(components[i].indexOf('http')>-1){
 					paths.push(components[i]);
+				}else if (components[i]==='*'){
+					paths.push(i);
 				}else{
 					paths.push(i+'#'+components[i]);
 				}
