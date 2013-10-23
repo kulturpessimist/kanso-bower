@@ -1,6 +1,6 @@
 {
 	"name": "kanso-bower",
-	"version": "0.1.0",
+	"version": "0.2.1",
 	"url": "http://github.com/kulturpessimist/kanso-bower",
 	"categories": ["build-tools"],
 	"description": "module to integrate bower and compile components into the frontend of a couchapp.",

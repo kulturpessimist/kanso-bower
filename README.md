@@ -47,6 +47,10 @@ You can use a component.json beside your kanso.json, but you can also integrate 
 * __deployment:__ path where the deployed compressed or concentrated components should be deployed. Folder relative to kanso.json.
 * __dependencies:__ Object compatible to the bower component.json with the needed components and versions (or if single script files with the key-value of name and url)
 
+### Credits
+
+Special thank to [Oren Zomer](https://github.com/ozomer) for fixing some bugs.
+
 ## node modules
 
 bower: 0.8.5
