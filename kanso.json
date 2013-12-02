@@ -8,5 +8,7 @@
 		"compile": "build/compile"
 	},
 	"postprocessors": {},
-	"dependencies": {}
+	"dependencies": {
+		"properties": null
+	}
 }
